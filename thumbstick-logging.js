@@ -9,7 +9,7 @@ AFRAME.registerComponent('thumbstick-logging',{
    let posX = pos['x'] 
    let posY = pos['y'] 
    let posZ = pos['z'];
-    while (evt.detail.y > 0.95) { 
+    if (evt.detail.y > 0.95) { 
       posZ = posZ - 0.5;
       console.log(posZ);
       camPos.setAttribute('position', `${posX}  ${posY}  ${posZ}`);
