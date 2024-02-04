@@ -1,0 +1,31 @@
+AFRAME.registerComponent('image-toggle', {
+    init: function() {
+        let imageClass = '.toggle-image';
+        let container = document.querySelector('#imageContainer');
+
+        this.toggleImage = function() {
+            console.log('clicked');
+            // Get all images with the specified class
+            let images = document.querySelectorAll(imageClass);
+            // Generate a random index to select an image
+            let randomIndex = Math.floor(Math.random() * images.length);
+            
+            // Set opacity of selected image to 1 and others to 0
+            images.forEach(function(image, index) {
+                if (index === randomIndex) {
+                    image.setAttribute('opacity', '1');
+                } else {
+                    image.setAttribute('opacity', '0');
+                }
+            });
+        };
+
+        // Attach click event listener to the container
+        container.addEventListener('click', this.toggleImage);
+    },
+    remove: function() {
+        let container = document.querySelector('#imageContainer');
+        // Remove click event listener when component is removed
+        container.removeEventListener('click', this.toggleImage);
+    }
+});
