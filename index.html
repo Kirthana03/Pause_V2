@@ -36,16 +36,18 @@
         </a-assets>
         <a-entity oculus-touch-controls="hand: left" thumbstick-logging></a-entity>
         <a-entity oculus-touch-controls="hand: right" thumbstick-logging></a-entity>
-        <a-entity position = "0 0 50">
-            <a-camera id = "cam" user-height = "1.5" look-controls wasd-controls="acceleration:100" position="0 0 0">
-                <a-entity>
-                    <a-cursor
-                      geometry="primitive:sphere ; radius:0.008"
-                      color="#FFF281">
-                    </a-cursor>
-                </a-entity>
-            </a-camera>
-
+        <a-entity oculus-touch-controls="hand: right" oculus-thumbstick-controls></a-entity>
+        
+        <a-entity id="rig" position = "0 0 50"
+            movement-controls>
+            <a-entity camera
+            position="0 1.6 0"
+            look-controls>
+            <a-cursor
+            geometry="primitive:sphere ; radius:0.008"
+            color="#FFF281">
+          </a-cursor> 
+          </a-entity>
         </a-entity>
 
         <a-sky
